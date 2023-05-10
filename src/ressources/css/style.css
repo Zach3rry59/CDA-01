@@ -4,6 +4,11 @@
 }
 
 :root {
+  --main-color: black;
+  --color-card: darkgray;
+  --line-color :var(--blue-fonce);
+  --back-color: var(--violet-clair);
+  --indicator: var(--rose-fonce-2);
   --violet: #afa4ce;
   --violet-clair: #b384a7;
   --blue: #8cacd3;
@@ -24,27 +29,95 @@
   --rose-fonce: #f38071;
   --rose-fonce-2: #f0604d;
   --blanc: #fefeff;
-}
-
-:root {
-  /* color type A */
   --line_color: #555555;
-  --back_color: #59b15f;
-
-  /* color type B */
-  /* --line_color : #1b1919 ;
-          --back_color : #E9ECFF  ; */
-
-  /* color type C */
-  /* --line_color : #00135C ;
-          --back_color : #DEFFFA  ; */
+  --back_color: var(--rose-fonce-2);
 }
 
 body {
-  background-color: var(--green);
-  line-height: 1.5;
+  background-color: whitesmoke;
+    line-height: 1.5;
   letter-spacing: 0.15px;
   font-family: "Helvetica", "sans-serif";
+  font-size: larger;
+}
+
+.cards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+.card{
+  display: flex;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  transition: 0.3s;
+  background-color: whitesmoke;
+}
+
+.card:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.image .picture{
+  --size: 100px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(to bottom, #42caff 0%, #e81aff 100%);
+  position: relative;
+}
+
+.image .picture img{
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+.image .picture::before {
+  content: " ";
+  border-radius: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: 90%;
+  transform: translate(-50%, -50%);
+  border: 1rem solid var(--blanc);
+ }
+
+.image .container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: whitesmoke;
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+}
+
+.image .container .name{
+  margin: 0;
+margin-top: 20px;
+font-weight: 600;
+font-size: 18px;
+}
+
+.image .container .reseaux{
+  
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+}
+
+image .container .reseaux::before{
+  display: block;
+  width: 100%;
+height: 2px;
 }
 
 .accueil {
@@ -312,7 +385,7 @@ body {
     width: 124px;
   }
 }
-.card:hover {
+.card:hover{
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
 }
@@ -325,16 +398,55 @@ body {
   align-items: center;
 }
 
-.content > article {
+.content > article, .profil li{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   margin: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   transition: 0.3s;
-  background-color: whitesmoke;
+  box-shadow: 0 4px 30px 0 rgb(82, 81, 81);
+  background: linear-gradient(62deg, #3a4ae9, #ca4a59);
+  background-size: 400% 400%;
+
+  -webkit-animation: Bubble 12s ease infinite;
+  -moz-animation: Bubble 12s ease infinite;
+  animation: Bubble 12s ease infinite;
 }
 
+@-webkit-keyframes Bubble {
+  0% {
+    background-position: 0% 84%;
+  }
+  50% {
+    background-position: 100% 17%;
+  }
+  100% {
+    background-position: 0% 84%;
+  }
+}
+@-moz-keyframes Bubble {
+  0% {
+    background-position: 0% 84%;
+  }
+  50% {
+    background-position: 100% 17%;
+  }
+  100% {
+    background-position: 0% 84%;
+  }
+}
+@keyframes Bubble {
+  0% {
+    background-position: 0% 84%;
+  }
+  50% {
+    background-position: 100% 17%;
+  }
+  100% {
+    background-position: 0% 84%;
+  }
+}
 .ff > div {
   margin-bottom: 1.5vh;
   text-align: center;
@@ -349,7 +461,7 @@ body {
 }
 
 .footer {
-  background: var(--green);
+  background: whitesmoke;
   text-align: center;
 }
 
@@ -386,7 +498,7 @@ nav a {
   width: 33.333%;
   display: table-cell;
   text-align: center;
-  color: #686565;
+  color: var(--blue-fonce);
   text-decoration: none;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: bold;
@@ -422,11 +534,11 @@ nav a:nth-child(1):before {
 }
 
 nav a:nth-child(1):after {
-  background-color: green;
+  background-color: var(--indicator);
 }
 
 nav a:nth-child(2):before {
-  background-color: green;
+  background-color: var(--indicator);
 }
 
 nav a:nth-child(2):after {
@@ -438,10 +550,10 @@ nav a:nth-child(3):before {
 }
 
 nav a:nth-child(3):after {
-  background-color: green;
+  background-color: var(--indicator);
 }
 nav a:nth-child(4):before {
-  background-color: green;
+  background-color: var(--indicator);
 }
 
 nav a:nth-child(4):after {
@@ -459,7 +571,7 @@ nav a:nth-child(4):after {
 }
 
 nav a:hover {
-  color: #65bd71;
+  color: var(--indicator);
 }
 
 nav a:hover:before,
@@ -468,22 +580,22 @@ nav a:hover:after {
 }
 
 nav a:nth-child(1):hover ~ #indicator {
-  background: linear-gradient(130deg, green, white);
+  background: linear-gradient(130deg, var(--rose-fonce-2), white);
 }
 
 nav a:nth-child(2):hover ~ #indicator {
   left: 34%;
-  background: linear-gradient(130deg, white, green);
+  background: linear-gradient(130deg, white, var(--rose-fonce-2));
 }
 
 nav a:nth-child(3):hover ~ #indicator {
   left: 70%;
-  background: linear-gradient(130deg, green, white);
+  background: linear-gradient(130deg, var(--rose-fonce-2), white);
 }
 
 nav a:nth-child(4):hover ~ #indicator {
   left: 90%;
-  background: linear-gradient(130deg, white, green);
+  background: linear-gradient(130deg, white, var(--rose-fonce-2));
 }
 
 .nom {
@@ -531,10 +643,14 @@ nav a:nth-child(4):hover ~ #indicator {
 
 .p-fort {
   color: green;
+  text-shadow:1px 1px 0px white;
 }
-
+.li{
+  text-shadow:1px 1px 0px white;
+}
 .p-faible {
   color: red;
+  text-shadow:1px 1px 0px white;
 }
 
 .parcours > h2 {
@@ -558,8 +674,7 @@ ul {
 }
 
 @media all and (max-width: 600px) {
-
-  .footer > .container{
+  .footer > .container {
     display: none;
   }
   .nom > img {
